@@ -24,14 +24,14 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select type from parts";
+                    string query = "select proj_id from projects";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
-                    da.Fill(ds, "Type");
-                    projectId.DisplayMember = "type";
-                    projectId.ValueMember = "Type";
-                    projectId.DataSource = ds.Tables["Type"];
+                    da.Fill(ds, "ProjectId");
+                    projectId.DisplayMember = "proj_id";
+                    projectId.ValueMember = "ProjectId";
+                    projectId.DataSource = ds.Tables["ProjectId"];
                 }
                 catch (Exception ex)
                 {
@@ -44,14 +44,14 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select type from parts";
+                    string query = "select part_id from parts";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
-                    da.Fill(ds, "Type");
-                    typeCombo.DisplayMember = "type";
-                    typeCombo.ValueMember = "Type";
-                    typeCombo.DataSource = ds.Tables["Type"];
+                    da.Fill(ds, "PartId");
+                    partId.DisplayMember = "part_id";
+                    partId.ValueMember = "PartId";
+                    partId.DataSource = ds.Tables["PartId"];
                 }
                 catch (Exception ex)
                 {
@@ -59,6 +59,11 @@ namespace MECHClubApp
                     MessageBox.Show("Error occured!");
                     this.Dispose();
                 }
+            }
+
+            for (int i = 0; i < 99; i++)
+            {
+                quantityNeeded.Items.Add(i.ToString());
             }
 
         }

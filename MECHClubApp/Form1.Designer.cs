@@ -44,6 +44,8 @@
             this.mECHDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mECHDatabaseDataSet = new MECHClubApp.MECHDatabaseDataSet();
             this.partsTableAdapter = new MECHClubApp.MECHDatabaseDataSetTableAdapters.partsTableAdapter();
+            this.projectsForm = new System.Windows.Forms.Button();
+            this.projectPartsForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSetBindingSource)).BeginInit();
@@ -165,11 +167,33 @@
             // 
             this.partsTableAdapter.ClearBeforeFill = true;
             // 
+            // projectsForm
+            // 
+            this.projectsForm.Location = new System.Drawing.Point(936, 225);
+            this.projectsForm.Name = "projectsForm";
+            this.projectsForm.Size = new System.Drawing.Size(126, 43);
+            this.projectsForm.TabIndex = 4;
+            this.projectsForm.Text = "Projects";
+            this.projectsForm.UseVisualStyleBackColor = true;
+            this.projectsForm.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // projectPartsForm
+            // 
+            this.projectPartsForm.Location = new System.Drawing.Point(1047, 225);
+            this.projectPartsForm.Name = "projectPartsForm";
+            this.projectPartsForm.Size = new System.Drawing.Size(126, 43);
+            this.projectPartsForm.TabIndex = 5;
+            this.projectPartsForm.Text = "Project Parts";
+            this.projectPartsForm.UseVisualStyleBackColor = true;
+            this.projectPartsForm.Click += new System.EventHandler(this.projectPartsForm_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 626);
+            this.Controls.Add(this.projectPartsForm);
+            this.Controls.Add(this.projectsForm);
             this.Controls.Add(this.partsGrid);
             this.Controls.Add(this.filter_part_button);
             this.Controls.Add(this.delete_part_button);
@@ -202,6 +226,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendorurlDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button projectsForm;
+        private System.Windows.Forms.Button projectPartsForm;
     }
 }
 

@@ -35,6 +35,8 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.projectCombo = new System.Windows.Forms.ComboBox();
+            this.partCombo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +48,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Filter";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -55,9 +58,12 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.partCombo);
+            this.groupBox1.Controls.Add(this.projectCombo);
             this.groupBox1.Controls.Add(this.radioButton4);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
@@ -115,6 +121,22 @@
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
+            // projectCombo
+            // 
+            this.projectCombo.FormattingEnabled = true;
+            this.projectCombo.Location = new System.Drawing.Point(200, 37);
+            this.projectCombo.Name = "projectCombo";
+            this.projectCombo.Size = new System.Drawing.Size(121, 21);
+            this.projectCombo.TabIndex = 18;
+            // 
+            // partCombo
+            // 
+            this.partCombo.FormattingEnabled = true;
+            this.partCombo.Location = new System.Drawing.Point(200, 78);
+            this.partCombo.Name = "partCombo";
+            this.partCombo.Size = new System.Drawing.Size(121, 21);
+            this.partCombo.TabIndex = 19;
+            // 
             // FilterProjectParts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,6 +147,7 @@
             this.Controls.Add(this.button1);
             this.Name = "FilterProjectParts";
             this.Text = "FilterProjectParts";
+            this.Load += new System.EventHandler(this.FilterProjectParts_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -140,5 +163,7 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.ComboBox partCombo;
+        private System.Windows.Forms.ComboBox projectCombo;
     }
 }

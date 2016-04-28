@@ -27,7 +27,26 @@ namespace MECHClubApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            AddProject addProject = new AddProject();
+            addProject.ShowDialog(this);
+            this.projectsTableAdapter.Fill(this.mECHDatabaseDataSet.projects);
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DeleteProject deleteProject = new DeleteProject();
+            deleteProject.ShowDialog(this);
+            this.projectsTableAdapter.Fill(this.mECHDatabaseDataSet.projects);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataTable filtered = new DataTable();
+            FilterProjects filterProjects = new FilterProjects(filtered);
+            filterProjects.ShowDialog(this);
+            filtered = filterProjects.getFilteredData();
+            projectsGrid.DataSource = filtered;
+            
         }
     }
 }

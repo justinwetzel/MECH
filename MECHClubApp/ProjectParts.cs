@@ -21,9 +21,30 @@ namespace MECHClubApp
         {
             // TODO: This line of code loads data into the 'mECHDatabaseDataSet.project_parts' table. You can move, or remove it, as needed.
             this.project_partsTableAdapter.Fill(this.mECHDatabaseDataSet.project_parts);
-            // TODO: This line of code loads data into the 'mECHDatabaseDataSet.events' table. You can move, or remove it, as needed.
-            this.eventsTableAdapter.Fill(this.mECHDatabaseDataSet.events);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddProjectPart addProjectPart = new AddProjectPart();
+            addProjectPart.ShowDialog(this);
+            this.project_partsTableAdapter.Fill(this.mECHDatabaseDataSet.project_parts);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DeleteProjectPart deleteProjectPart = new DeleteProjectPart();
+            deleteProjectPart.ShowDialog(this);
+            this.project_partsTableAdapter.Fill(this.mECHDatabaseDataSet.project_parts);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataTable filtered = new DataTable();
+            FilterProjectParts filterProjectParts = new FilterProjectParts(filtered);
+            filterProjectParts.ShowDialog(this);
+            filtered = filterProjectParts.getFilteredData();
+            projectPartsGrid.DataSource = filtered;
         }
     }
 }

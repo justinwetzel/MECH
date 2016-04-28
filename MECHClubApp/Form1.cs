@@ -47,5 +47,21 @@ namespace MECHClubApp
             filtered = filterParts.getFilteredData();
             partsGrid.DataSource = filtered;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Projects projectForm = new Projects();
+            projectForm.Closed += (s, args) => this.Close();
+            projectForm.Show();
+        }
+
+        private void projectPartsForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProjectParts projectPartsForm = new ProjectParts();
+            projectPartsForm.Closed += (s, args) => this.Close();
+            projectPartsForm.Show();
+        }
     }
 }

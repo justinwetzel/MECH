@@ -31,9 +31,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.versionFilter = new System.Windows.Forms.RadioButton();
+            this.contributorFilter = new System.Windows.Forms.RadioButton();
+            this.projectFilter = new System.Windows.Forms.RadioButton();
+            this.projectCombo = new System.Windows.Forms.ComboBox();
+            this.contributorCombo = new System.Windows.Forms.ComboBox();
+            this.versionCombo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,48 +61,76 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.versionCombo);
+            this.groupBox1.Controls.Add(this.contributorCombo);
+            this.groupBox1.Controls.Add(this.projectCombo);
+            this.groupBox1.Controls.Add(this.versionFilter);
+            this.groupBox1.Controls.Add(this.contributorFilter);
+            this.groupBox1.Controls.Add(this.projectFilter);
             this.groupBox1.Location = new System.Drawing.Point(32, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(350, 304);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choose your Filter";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // radioButton3
+            // versionFilter
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(27, 120);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(99, 17);
-            this.radioButton3.TabIndex = 12;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Filter by Version";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.versionFilter.AutoSize = true;
+            this.versionFilter.Location = new System.Drawing.Point(27, 120);
+            this.versionFilter.Name = "versionFilter";
+            this.versionFilter.Size = new System.Drawing.Size(99, 17);
+            this.versionFilter.TabIndex = 12;
+            this.versionFilter.TabStop = true;
+            this.versionFilter.Text = "Filter by Version";
+            this.versionFilter.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // contributorFilter
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(27, 78);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(115, 17);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Filter by Contributor";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.contributorFilter.AutoSize = true;
+            this.contributorFilter.Location = new System.Drawing.Point(27, 78);
+            this.contributorFilter.Name = "contributorFilter";
+            this.contributorFilter.Size = new System.Drawing.Size(115, 17);
+            this.contributorFilter.TabIndex = 11;
+            this.contributorFilter.TabStop = true;
+            this.contributorFilter.Text = "Filter by Contributor";
+            this.contributorFilter.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // projectFilter
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(27, 37);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(97, 17);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Filter by Project";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.projectFilter.AutoSize = true;
+            this.projectFilter.Location = new System.Drawing.Point(27, 37);
+            this.projectFilter.Name = "projectFilter";
+            this.projectFilter.Size = new System.Drawing.Size(97, 17);
+            this.projectFilter.TabIndex = 10;
+            this.projectFilter.TabStop = true;
+            this.projectFilter.Text = "Filter by Project";
+            this.projectFilter.UseVisualStyleBackColor = true;
+            // 
+            // projectCombo
+            // 
+            this.projectCombo.FormattingEnabled = true;
+            this.projectCombo.Location = new System.Drawing.Point(203, 36);
+            this.projectCombo.Name = "projectCombo";
+            this.projectCombo.Size = new System.Drawing.Size(121, 21);
+            this.projectCombo.TabIndex = 18;
+            // 
+            // contributorCombo
+            // 
+            this.contributorCombo.FormattingEnabled = true;
+            this.contributorCombo.Location = new System.Drawing.Point(203, 77);
+            this.contributorCombo.Name = "contributorCombo";
+            this.contributorCombo.Size = new System.Drawing.Size(121, 21);
+            this.contributorCombo.TabIndex = 19;
+            // 
+            // versionCombo
+            // 
+            this.versionCombo.FormattingEnabled = true;
+            this.versionCombo.Location = new System.Drawing.Point(203, 119);
+            this.versionCombo.Name = "versionCombo";
+            this.versionCombo.Size = new System.Drawing.Size(121, 21);
+            this.versionCombo.TabIndex = 20;
             // 
             // FilterProjects
             // 
@@ -111,6 +142,7 @@
             this.Controls.Add(this.button1);
             this.Name = "FilterProjects";
             this.Text = "FilterProjects";
+            this.Load += new System.EventHandler(this.FilterProjects_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -122,8 +154,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton versionFilter;
+        private System.Windows.Forms.RadioButton contributorFilter;
+        private System.Windows.Forms.RadioButton projectFilter;
+        private System.Windows.Forms.ComboBox versionCombo;
+        private System.Windows.Forms.ComboBox contributorCombo;
+        private System.Windows.Forms.ComboBox projectCombo;
     }
 }
