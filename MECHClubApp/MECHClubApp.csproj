@@ -58,6 +58,12 @@
     <Compile Include="DeletePart.Designer.cs">
       <DependentUpon>DeletePart.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventsPage.Designer.cs">
+      <DependentUpon>EventsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FilterParts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeletePart.resx">
       <DependentUpon>DeletePart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventsPage.resx">
+      <DependentUpon>EventsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FilterParts.resx">
       <DependentUpon>FilterParts.cs</DependentUpon>
