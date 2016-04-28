@@ -38,5 +38,14 @@ namespace MECHClubApp
             deletePart.ShowDialog(this);
             this.partsTableAdapter.Fill(this.mECHDatabaseDataSet.parts);
         }
+
+        private void filter_part_button_Click(object sender, EventArgs e)
+        {
+            DataTable filtered = new DataTable();
+            FilterParts filterParts = new FilterParts(filtered);
+            filterParts.ShowDialog(this);
+            filtered = filterParts.getFilteredData();
+            partsGrid.DataSource = filtered;
+        }
     }
 }
