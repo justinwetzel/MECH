@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.orderDate = new System.Windows.Forms.DateTimePicker();
             this.orderStatus = new System.Windows.Forms.ComboBox();
             this.lowestQuantity = new System.Windows.Forms.RadioButton();
             this.highestQuantity = new System.Windows.Forms.RadioButton();
@@ -38,7 +39,6 @@
             this.statusFilter = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.orderDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choose your Filter";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // orderDate
+            // 
+            this.orderDate.Location = new System.Drawing.Point(150, 78);
+            this.orderDate.Name = "orderDate";
+            this.orderDate.Size = new System.Drawing.Size(200, 20);
+            this.orderDate.TabIndex = 18;
             // 
             // orderStatus
             // 
@@ -115,12 +122,12 @@
             // dateFilter
             // 
             this.dateFilter.AutoSize = true;
-            this.dateFilter.Location = new System.Drawing.Point(27, 78);
+            this.dateFilter.Location = new System.Drawing.Point(27, 84);
             this.dateFilter.Name = "dateFilter";
-            this.dateFilter.Size = new System.Drawing.Size(87, 17);
+            this.dateFilter.Size = new System.Drawing.Size(202, 30);
             this.dateFilter.TabIndex = 11;
             this.dateFilter.TabStop = true;
-            this.dateFilter.Text = "Filter by Date\r\n";
+            this.dateFilter.Text = "Filter by Date\r\n(Only orders before the selected date)\r\n";
             this.dateFilter.UseVisualStyleBackColor = true;
             // 
             // statusFilter
@@ -153,13 +160,6 @@
             this.button1.Text = "Filter";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // orderDate
-            // 
-            this.orderDate.Location = new System.Drawing.Point(150, 78);
-            this.orderDate.Name = "orderDate";
-            this.orderDate.Size = new System.Drawing.Size(200, 20);
-            this.orderDate.TabIndex = 18;
             // 
             // FilterOrders
             // 

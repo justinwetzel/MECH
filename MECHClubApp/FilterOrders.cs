@@ -45,7 +45,7 @@ namespace MECHClubApp
                 }
                 else if (dateFilter.Checked)
                 {
-                    sqlCommand = "SELECT *  FROM orders WHERE orders.o_date >  '" + orderDate.Value.Date + "'";
+                    sqlCommand = "SELECT *  FROM orders WHERE orders.o_date <  '" + orderDate.Value.Date + "'";
                 }
                 else if (expensiveFilter.Checked)
                 {
@@ -75,7 +75,7 @@ namespace MECHClubApp
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please be sure to select a filter.");
             }
             finally
             {
