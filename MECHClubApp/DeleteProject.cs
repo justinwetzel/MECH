@@ -23,7 +23,7 @@ namespace MECHClubApp
             SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
             try
             {
-                string sqlCommand = "DELETE FROM projects WHERE projects.proj_id=" + partId.Text;
+                string sqlCommand = "DELETE FROM projects WHERE projects.proj_id=" + projectId.Text;
                 SqlCommand execute = new SqlCommand(sqlCommand, connect);
                 connect.Open();
                 execute.ExecuteNonQuery();

@@ -36,8 +36,14 @@ namespace MECHClubApp
             string vendor_Url = vendorUrl.Text; 
             try
             {
-                string sqlCommand = "INSERT INTO parts(part_name,price,quantity,type,vendor, vendor_url) values('"+ name + "','" + partPrice + "','" + quantity + "','" + type + "','" + partVendor + "','" + vendor_Url + "')";
+                string sqlCommand = "INSERT INTO parts(part_name,price,quantity,type,vendor, vendor_url) values(@name,@partPrice,@quantity,@type,@partVendor,@vendor_url)";
                 SqlCommand execute = new SqlCommand(sqlCommand, connect);
+                execute.Parameters.AddWithValue("@name", name);
+                execute.Parameters.AddWithValue("@partPrice", partPrice);
+                execute.Parameters.AddWithValue("@quantity", quantity);
+                execute.Parameters.AddWithValue("@type", type);
+                execute.Parameters.AddWithValue("@partVendor", partVendor);
+                execute.Parameters.AddWithValue("@vendor_url", vendor_Url);
                 connect.Open();
                 execute.ExecuteNonQuery();
             }

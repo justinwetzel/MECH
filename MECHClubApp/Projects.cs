@@ -48,5 +48,37 @@ namespace MECHClubApp
             projectsGrid.DataSource = filtered;
             
         }
+
+        private void partsForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 partForm = new Form1();
+            partForm.Closed += (s, args) => this.Close();
+            partForm.Show();
+        }
+
+        private void projectPartsForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProjectParts projectPartsForm = new ProjectParts();
+            projectPartsForm.Closed += (s, args) => this.Close();
+            projectPartsForm.Show();
+        }
+
+        private void eventsForm_Click(object sender, EventArgs e)
+        {
+            /*this.Hide();
+            Events eventForm = new Events();
+            eventForm.Closed += (s, args) => this.Close();
+            eventForm.Show();*/
+        }
+
+        private void ordersForm_Click(object sender, EventArgs e)
+        {
+            /*this.Hide();
+            Orders orderForm = new Orders();
+            orderForm.Closed += (s, args) => this.Close();
+            orderForm.Show();*/
+        }
     }
 }

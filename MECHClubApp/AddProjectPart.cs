@@ -80,8 +80,11 @@ namespace MECHClubApp
             string quantity = quantityNeeded.Text;
             try
             {
-                string sqlCommand = "INSERT INTO project_parts(proj_id,part_id,quantity_need) values('" + project_Id + "','" + part_Id + "','" + quantity + "')";
+                string sqlCommand = "INSERT INTO project_parts(proj_id,part_id,quantity_need) values(@project_Id,@part_Id,@quantity)";
                 SqlCommand execute = new SqlCommand(sqlCommand, connect);
+                execute.Parameters.AddWithValue("@project_Id", project_Id);
+                execute.Parameters.AddWithValue("@part_Id", part_Id);
+                execute.Parameters.AddWithValue("@quantity", quantity);
                 connect.Open();
                 execute.ExecuteNonQuery();
             }

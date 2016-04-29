@@ -46,6 +46,8 @@
             this.partsTableAdapter = new MECHClubApp.MECHDatabaseDataSetTableAdapters.partsTableAdapter();
             this.projectsForm = new System.Windows.Forms.Button();
             this.projectPartsForm = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSetBindingSource)).BeginInit();
@@ -169,7 +171,7 @@
             // 
             // projectsForm
             // 
-            this.projectsForm.Location = new System.Drawing.Point(936, 225);
+            this.projectsForm.Location = new System.Drawing.Point(928, 224);
             this.projectsForm.Name = "projectsForm";
             this.projectsForm.Size = new System.Drawing.Size(126, 43);
             this.projectsForm.TabIndex = 4;
@@ -179,7 +181,7 @@
             // 
             // projectPartsForm
             // 
-            this.projectPartsForm.Location = new System.Drawing.Point(1047, 225);
+            this.projectPartsForm.Location = new System.Drawing.Point(1049, 224);
             this.projectPartsForm.Name = "projectPartsForm";
             this.projectPartsForm.Size = new System.Drawing.Size(126, 43);
             this.projectPartsForm.TabIndex = 5;
@@ -187,11 +189,33 @@
             this.projectPartsForm.UseVisualStyleBackColor = true;
             this.projectPartsForm.Click += new System.EventHandler(this.projectPartsForm_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(808, 224);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 43);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Orders";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(689, 224);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(126, 43);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Events";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 626);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.projectPartsForm);
             this.Controls.Add(this.projectsForm);
             this.Controls.Add(this.partsGrid);
@@ -228,6 +252,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vendorurlDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button projectsForm;
         private System.Windows.Forms.Button projectPartsForm;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

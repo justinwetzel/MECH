@@ -40,7 +40,7 @@ namespace MECHClubApp
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Unable to delete part, make sure a Project or Project part doesn't depend on it before deleting.");
             }
             finally
             {

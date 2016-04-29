@@ -43,6 +43,10 @@
             this.eventsTableAdapter = new MECHClubApp.MECHDatabaseDataSetTableAdapters.eventsTableAdapter();
             this.projectpartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.project_partsTableAdapter = new MECHClubApp.MECHDatabaseDataSetTableAdapters.project_partsTableAdapter();
+            this.eventsForm = new System.Windows.Forms.Button();
+            this.ordersForm = new System.Windows.Forms.Button();
+            this.partsForm = new System.Windows.Forms.Button();
+            this.projectsForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.projectPartsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectpartsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSet)).BeginInit();
@@ -152,11 +156,55 @@
             // 
             this.project_partsTableAdapter.ClearBeforeFill = true;
             // 
+            // eventsForm
+            // 
+            this.eventsForm.Location = new System.Drawing.Point(689, 254);
+            this.eventsForm.Name = "eventsForm";
+            this.eventsForm.Size = new System.Drawing.Size(126, 43);
+            this.eventsForm.TabIndex = 11;
+            this.eventsForm.Text = "Events";
+            this.eventsForm.UseVisualStyleBackColor = true;
+            this.eventsForm.Click += new System.EventHandler(this.eventsForm_Click);
+            // 
+            // ordersForm
+            // 
+            this.ordersForm.Location = new System.Drawing.Point(808, 254);
+            this.ordersForm.Name = "ordersForm";
+            this.ordersForm.Size = new System.Drawing.Size(126, 43);
+            this.ordersForm.TabIndex = 10;
+            this.ordersForm.Text = "Orders";
+            this.ordersForm.UseVisualStyleBackColor = true;
+            this.ordersForm.Click += new System.EventHandler(this.ordersForm_Click);
+            // 
+            // partsForm
+            // 
+            this.partsForm.Location = new System.Drawing.Point(1049, 254);
+            this.partsForm.Name = "partsForm";
+            this.partsForm.Size = new System.Drawing.Size(126, 43);
+            this.partsForm.TabIndex = 9;
+            this.partsForm.Text = "Parts";
+            this.partsForm.UseVisualStyleBackColor = true;
+            this.partsForm.Click += new System.EventHandler(this.partsForm_Click);
+            // 
+            // projectsForm
+            // 
+            this.projectsForm.Location = new System.Drawing.Point(928, 254);
+            this.projectsForm.Name = "projectsForm";
+            this.projectsForm.Size = new System.Drawing.Size(126, 43);
+            this.projectsForm.TabIndex = 8;
+            this.projectsForm.Text = "Projects";
+            this.projectsForm.UseVisualStyleBackColor = true;
+            this.projectsForm.Click += new System.EventHandler(this.projectsForm_Click);
+            // 
             // ProjectParts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 626);
+            this.Controls.Add(this.eventsForm);
+            this.Controls.Add(this.ordersForm);
+            this.Controls.Add(this.partsForm);
+            this.Controls.Add(this.projectsForm);
             this.Controls.Add(this.projectPartsGrid);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -189,5 +237,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn part_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity_need;
         private System.Windows.Forms.BindingSource projectpartsBindingSource1;
+        private System.Windows.Forms.Button eventsForm;
+        private System.Windows.Forms.Button ordersForm;
+        private System.Windows.Forms.Button partsForm;
+        private System.Windows.Forms.Button projectsForm;
     }
 }

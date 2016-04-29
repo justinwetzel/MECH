@@ -30,7 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.partId = new System.Windows.Forms.TextBox();
+            this.projectId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -54,12 +54,12 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // partId
+            // projectId
             // 
-            this.partId.Location = new System.Drawing.Point(197, 140);
-            this.partId.Name = "partId";
-            this.partId.Size = new System.Drawing.Size(100, 20);
-            this.partId.TabIndex = 4;
+            this.projectId.Location = new System.Drawing.Point(197, 140);
+            this.projectId.Name = "projectId";
+            this.projectId.Size = new System.Drawing.Size(100, 20);
+            this.projectId.TabIndex = 4;
             // 
             // label1
             // 
@@ -76,7 +76,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 406);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.partId);
+            this.Controls.Add(this.projectId);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "DeleteProject";
@@ -90,7 +90,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox partId;
+        private System.Windows.Forms.TextBox projectId;
         private System.Windows.Forms.Label label1;
     }
 }

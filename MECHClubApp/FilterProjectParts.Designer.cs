@@ -31,10 +31,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.leastFilter = new System.Windows.Forms.RadioButton();
+            this.mostFilter = new System.Windows.Forms.RadioButton();
+            this.partFilter = new System.Windows.Forms.RadioButton();
+            this.projectFilter = new System.Windows.Forms.RadioButton();
             this.projectCombo = new System.Windows.Forms.ComboBox();
             this.partCombo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
@@ -64,10 +64,10 @@
             // 
             this.groupBox1.Controls.Add(this.partCombo);
             this.groupBox1.Controls.Add(this.projectCombo);
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.leastFilter);
+            this.groupBox1.Controls.Add(this.mostFilter);
+            this.groupBox1.Controls.Add(this.partFilter);
+            this.groupBox1.Controls.Add(this.projectFilter);
             this.groupBox1.Location = new System.Drawing.Point(25, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(350, 304);
@@ -75,51 +75,51 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choose your Filter";
             // 
-            // radioButton4
+            // leastFilter
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(27, 161);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(119, 17);
-            this.radioButton4.TabIndex = 13;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Least Needed Parts";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.leastFilter.AutoSize = true;
+            this.leastFilter.Location = new System.Drawing.Point(27, 161);
+            this.leastFilter.Name = "leastFilter";
+            this.leastFilter.Size = new System.Drawing.Size(119, 17);
+            this.leastFilter.TabIndex = 13;
+            this.leastFilter.TabStop = true;
+            this.leastFilter.Text = "Least Needed Parts";
+            this.leastFilter.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // mostFilter
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(27, 120);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(116, 17);
-            this.radioButton3.TabIndex = 12;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Most Needed Parts";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.mostFilter.AutoSize = true;
+            this.mostFilter.Location = new System.Drawing.Point(27, 120);
+            this.mostFilter.Name = "mostFilter";
+            this.mostFilter.Size = new System.Drawing.Size(116, 17);
+            this.mostFilter.TabIndex = 12;
+            this.mostFilter.TabStop = true;
+            this.mostFilter.Text = "Most Needed Parts";
+            this.mostFilter.UseVisualStyleBackColor = true;
+            this.mostFilter.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
-            // radioButton2
+            // partFilter
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(27, 78);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(119, 17);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Filter by Project Part";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.partFilter.AutoSize = true;
+            this.partFilter.Location = new System.Drawing.Point(27, 78);
+            this.partFilter.Name = "partFilter";
+            this.partFilter.Size = new System.Drawing.Size(119, 17);
+            this.partFilter.TabIndex = 11;
+            this.partFilter.TabStop = true;
+            this.partFilter.Text = "Filter by Project Part";
+            this.partFilter.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // projectFilter
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(27, 37);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(97, 17);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Filter by Project";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.projectFilter.AutoSize = true;
+            this.projectFilter.Location = new System.Drawing.Point(27, 37);
+            this.projectFilter.Name = "projectFilter";
+            this.projectFilter.Size = new System.Drawing.Size(97, 17);
+            this.projectFilter.TabIndex = 10;
+            this.projectFilter.TabStop = true;
+            this.projectFilter.Text = "Filter by Project";
+            this.projectFilter.UseVisualStyleBackColor = true;
+            this.projectFilter.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // projectCombo
             // 
@@ -159,10 +159,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton leastFilter;
+        private System.Windows.Forms.RadioButton mostFilter;
+        private System.Windows.Forms.RadioButton partFilter;
+        private System.Windows.Forms.RadioButton projectFilter;
         private System.Windows.Forms.ComboBox partCombo;
         private System.Windows.Forms.ComboBox projectCombo;
     }

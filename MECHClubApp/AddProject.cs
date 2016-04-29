@@ -28,8 +28,13 @@ namespace MECHClubApp
             string image_Url = imageUrl.Text;
             try
             {
-                string sqlCommand = "INSERT INTO projects(proj_name,version,contributors,image_url,description) values('" + project_Name + "','" + project_Version + "','" + pContributor + "','" + image_Url + "','" + pDescription + "')";
+                string sqlCommand = "INSERT INTO projects(proj_name,version,contributors,image_url,description) values(@project_Name,@project_Version,@pContributor,@image_Url,@pDescription)";
                 SqlCommand execute = new SqlCommand(sqlCommand, connect);
+                execute.Parameters.AddWithValue("@project_Name", project_Name);
+                execute.Parameters.AddWithValue("@project_Version", project_Version);
+                execute.Parameters.AddWithValue("@pContributor", pContributor);
+                execute.Parameters.AddWithValue("@image_Url", image_Url);
+                execute.Parameters.AddWithValue("@pDescription", pDescription);
                 connect.Open();
                 execute.ExecuteNonQuery();
             }

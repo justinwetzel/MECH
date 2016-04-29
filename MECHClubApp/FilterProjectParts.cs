@@ -32,7 +32,37 @@ namespace MECHClubApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
+            string sqlCommand = "";
 
+            if (projectFilter.Checked)
+            {
+                string projectSelect = projectCombo.Text;
+                sqlCommand = "SELECT * FROM project_parts WHERE project_parts.proj_id = '" + projectSelect + "'";
+            }
+            else if (partFilter.Checked)
+            {
+                string partSelect = partCombo.Text;
+                sqlCommand = "SELECT *  FROM project_parts WHERE project_parts.part_id = '" + partSelect + "'";
+            }
+            else if (mostFilter.Checked)
+            {
+                sqlCommand = "SELECT * FROM project_parts ORDER BY project_parts.quantity_need DESC";
+            }
+            else if (leastFilter.Checked)
+            {
+                sqlCommand = "SELECT * FROM project_parts ORDER BY project_parts.quantity_need ASC";
+            }
+            else
+            {
+                MessageBox.Show("Error occured!");
+            }
+
+            SqlDataAdapter execute = new SqlDataAdapter(sqlCommand, connect);
+            DataTable data = new DataTable();
+            connect.Open();
+            execute.Fill(filterData);
+            this.Dispose();
         }
 
         private void FilterProjectParts_Load(object sender, EventArgs e)
