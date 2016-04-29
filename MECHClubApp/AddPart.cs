@@ -26,36 +26,53 @@ namespace MECHClubApp
         private void button1_Click(object sender, EventArgs e)
         {
             SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
-
+            bool valid = true;
+            int fake;
+            if (Int32.TryParse(partName.Text, out fake))
+            {
+                valid = false;
+            }
+            bool containsInt = false;
+            if (containsInt = price.Text.Any(Char.IsLetter))
+            {
+                valid = false;
+            }
             string quantity = partQuantity.Text;
             string type = partType.Text;
             string name = partName.Text;
             string partPrice = price.Text;
             string partVendor = vendor.Text;
-            string vendor_Url = vendorUrl.Text; 
-            try
+            string vendor_Url = vendorUrl.Text;
+            if (valid == true)
             {
-                string sqlCommand = "INSERT INTO parts(part_name,price,quantity,type,vendor, vendor_url) values(@name,@partPrice,@quantity,@type,@partVendor,@vendor_url)";
-                SqlCommand execute = new SqlCommand(sqlCommand, connect);
-                execute.Parameters.AddWithValue("@name", name);
-                execute.Parameters.AddWithValue("@partPrice", partPrice);
-                execute.Parameters.AddWithValue("@quantity", quantity);
-                execute.Parameters.AddWithValue("@type", type);
-                execute.Parameters.AddWithValue("@partVendor", partVendor);
-                execute.Parameters.AddWithValue("@vendor_url", vendor_Url);
-                connect.Open();
-                execute.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error has occured.");
-            }
-            finally
-            {
+                try
+                {
+                    string sqlCommand = "INSERT INTO parts(part_name,price,quantity,type,vendor, vendor_url) values(@name,@partPrice,@quantity,@type,@partVendor,@vendor_url)";
+                    SqlCommand execute = new SqlCommand(sqlCommand, connect);
+                    execute.Parameters.AddWithValue("@name", name);
+                    execute.Parameters.AddWithValue("@partPrice", partPrice);
+                    execute.Parameters.AddWithValue("@quantity", quantity);
+                    execute.Parameters.AddWithValue("@type", type);
+                    execute.Parameters.AddWithValue("@partVendor", partVendor);
+                    execute.Parameters.AddWithValue("@vendor_url", vendor_Url);
+                    connect.Open();
+                    execute.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error has occured.");
+                }
+                finally
+                {
 
-            }
+                }
 
-            this.Dispose();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Please check the format of your input. Part Name must contain a character, and price as an integer without any characters.");
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
