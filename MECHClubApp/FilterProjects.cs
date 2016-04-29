@@ -22,35 +22,45 @@ namespace MECHClubApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
-            string sqlCommand = "";
+            try {
+                SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
+                string sqlCommand = "";
 
-            if (projectFilter.Checked)
-            {
-                string projectSelect = projectCombo.Text;
-                MessageBox.Show(projectSelect);
-                sqlCommand = "SELECT * FROM projects WHERE projects.proj_name LIKE '" + projectSelect + "'";
-            }
-            else if (contributorFilter.Checked)
-            {
-                string contributorSelect = contributorCombo.Text;
-                sqlCommand = "SELECT *  FROM projects WHERE projects.contributors LIKE '" + contributorSelect + "'";
-            }
-            else if (versionFilter.Checked)
-            {
-                string versionSelect = versionCombo.Text;
-                sqlCommand = "SELECT * FROM projects WHERE projects.version LIKE '" + versionSelect + "'";
-            }
-            else
-            {
-                MessageBox.Show("Error occured! Checking filters");
-            }
+                if (projectFilter.Checked)
+                {
+                    string projectSelect = projectCombo.Text;
+                    MessageBox.Show(projectSelect);
+                    sqlCommand = "SELECT * FROM projects WHERE projects.proj_name LIKE '" + projectSelect + "'";
+                }
+                else if (contributorFilter.Checked)
+                {
+                    string contributorSelect = contributorCombo.Text;
+                    sqlCommand = "SELECT *  FROM projects WHERE projects.contributors LIKE '" + contributorSelect + "'";
+                }
+                else if (versionFilter.Checked)
+                {
+                    string versionSelect = versionCombo.Text;
+                    sqlCommand = "SELECT * FROM projects WHERE projects.version LIKE '" + versionSelect + "'";
+                }
+                else
+                {
+                    MessageBox.Show("Error occured! Checking filters");
+                }
 
-            SqlDataAdapter execute = new SqlDataAdapter(sqlCommand, connect);
-            DataTable data = new DataTable();
-            connect.Open();
-            execute.Fill(filterData);
-            this.Dispose();
+                SqlDataAdapter execute = new SqlDataAdapter(sqlCommand, connect);
+                DataTable data = new DataTable();
+                connect.Open();
+                execute.Fill(filterData);
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please be sure to select a filter.");
+            }
+            finally
+            {
+
+            }
         }
         public DataTable getFilteredData()
         {

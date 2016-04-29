@@ -81,7 +81,10 @@ namespace MECHClubApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Events eventForm = new Events();
+            eventForm.Closed += (s, args) => this.Close();
+            eventForm.Show();
         }
     }
 }

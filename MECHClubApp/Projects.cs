@@ -73,10 +73,10 @@ namespace MECHClubApp
 
         private void eventsForm_Click(object sender, EventArgs e)
         {
-            /*this.Hide();
+            this.Hide();
             Events eventForm = new Events();
             eventForm.Closed += (s, args) => this.Close();
-            eventForm.Show();*/
+            eventForm.Show();
         }
 
         private void ordersForm_Click(object sender, EventArgs e)

@@ -38,6 +38,10 @@ namespace MECHClubApp
             string pContributor = contributor.Text;
             string pDescription = description.Text;
             string image_Url = imageUrl.Text;
+            if (projectName.Text == "" || projectVersion.Text == "" || contributor.Text == "" || description.Text == "" || imageUrl.Text == "")
+            {
+                valid = false;
+            }
             if (valid == true)
             {
                 try
@@ -65,7 +69,7 @@ namespace MECHClubApp
             }
             else
             {
-                MessageBox.Show("Please check the format of your input. Project Name must contain a character, and Contributor must not contain any digitss.");
+                MessageBox.Show("Please check the format of your input. Project Name must contain a character, and Contributor must not contain any digits. All fields are required.");
             }
         }
 

@@ -37,6 +37,10 @@ namespace MECHClubApp
             {
                 valid = false;
             }
+            if(partName.Text == "" || price.Text == ""  || vendor.Text == "" || vendorUrl.Text == "")
+            {
+                valid = false;
+            }
             string quantity = partQuantity.Text;
             string type = partType.Text;
             string name = partName.Text;
@@ -71,7 +75,7 @@ namespace MECHClubApp
             }
             else
             {
-                MessageBox.Show("Please check the format of your input. Part Name must contain a character, and price as an integer without any characters.");
+                MessageBox.Show("Please check the format of your input. Part Name must contain a character, and price as an integer without any characters. All fields required");
             }
         }
 

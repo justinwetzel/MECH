@@ -27,45 +27,55 @@ namespace MECHClubApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
-            string sqlCommand = "";
+            try {
+                SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
+                string sqlCommand = "";
 
-            if (typeFilter.Checked)
-            {
-                string typeSelect = typeCombo.SelectedValue.ToString();
-                sqlCommand = "SELECT * FROM parts WHERE parts.type LIKE '" + typeSelect + "'";
-            }
-            else if (vendorFilter.Checked)
-            {
-                string vendorSelect = vendorCombo.SelectedValue.ToString();
-                sqlCommand = "SELECT *  FROM parts WHERE parts.vendor LIKE '" + vendorSelect + "'";
-            }
-            else if (expensiveFilter.Checked)
-            {
-                sqlCommand = "SELECT * FROM parts ORDER BY parts.price DESC";
-            }
-            else if (leastExpFilter.Checked)
-            {
-                sqlCommand = "SELECT * FROM parts ORDER BY parts.price ASC";
-            }
-            else if (highestQuantity.Checked)
-            {
-                sqlCommand = "SELECT * FROM parts ORDER BY parts.quantity DESC";
-            }
-            else if (lowestQuantity.Checked)
-            {
-                sqlCommand = "SELECT * FROM parts ORDER BY parts.quantity ASC";
-            }
-            else
-            {
-                MessageBox.Show("Error occured!");
-            }
+                if (typeFilter.Checked)
+                {
+                    string typeSelect = typeCombo.SelectedValue.ToString();
+                    sqlCommand = "SELECT * FROM parts WHERE parts.type LIKE '" + typeSelect + "'";
+                }
+                else if (vendorFilter.Checked)
+                {
+                    string vendorSelect = vendorCombo.SelectedValue.ToString();
+                    sqlCommand = "SELECT *  FROM parts WHERE parts.vendor LIKE '" + vendorSelect + "'";
+                }
+                else if (expensiveFilter.Checked)
+                {
+                    sqlCommand = "SELECT * FROM parts ORDER BY parts.price DESC";
+                }
+                else if (leastExpFilter.Checked)
+                {
+                    sqlCommand = "SELECT * FROM parts ORDER BY parts.price ASC";
+                }
+                else if (highestQuantity.Checked)
+                {
+                    sqlCommand = "SELECT * FROM parts ORDER BY parts.quantity DESC";
+                }
+                else if (lowestQuantity.Checked)
+                {
+                    sqlCommand = "SELECT * FROM parts ORDER BY parts.quantity ASC";
+                }
+                else
+                {
+                    MessageBox.Show("Error occured!");
+                }
 
-            SqlDataAdapter execute = new SqlDataAdapter(sqlCommand, connect);
-            DataTable data = new DataTable();
-            connect.Open();
-            execute.Fill(filterData);
-            this.Dispose();
+                SqlDataAdapter execute = new SqlDataAdapter(sqlCommand, connect);
+                DataTable data = new DataTable();
+                connect.Open();
+                execute.Fill(filterData);
+                this.Dispose();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Please be sure to select a filter.");
+            }
+            finally
+            {
+
+            }
             
         }
         

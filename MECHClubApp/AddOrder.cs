@@ -24,50 +24,60 @@ namespace MECHClubApp
             SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
             if (Int32.TryParse(orderNumber.Text, out order))
             {
+                bool valid = true;
                 string orderNumber = order.ToString();
                 string part_Id = partId.Text;
                 string status = orderStatus.Text;
                 string orderQuantity = quantity.Text;
-               
-                
-
-
-
-
-                try
+                if (orderNumber == "")
                 {
-                    string query = "select price from parts where parts.part_id = @partId";
-                    SqlCommand da = new SqlCommand(query, connect);
-                    da.Parameters.AddWithValue("@partId", part_Id);
-                    connect.Open();
-                    var cost = da.ExecuteScalar();
-                    cost = Convert.ToInt32(cost) * Int32.Parse(orderQuantity);
-                    string sqlCommand = "INSERT INTO orders(order_number,part_id,status,costs,quantity,o_date) values(@orderNumber,@partId,@status,@costs,@orderQuantity,@orderDate)";
-                    SqlCommand execute = new SqlCommand(sqlCommand, connect);
-                    execute.Parameters.AddWithValue("@orderNumber", orderNumber);
-                    execute.Parameters.AddWithValue("@partId", part_Id);
-                    execute.Parameters.AddWithValue("@status", status);
-                    execute.Parameters.AddWithValue("@costs", cost);
-                    execute.Parameters.AddWithValue("@orderQuantity", orderQuantity);
-                    execute.Parameters.Add("@orderDate", SqlDbType.Date).Value = orderDate.Value.Date;
-                    execute.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error has occured.");
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-
+                    valid = false;
                 }
 
-                this.Dispose();
+                if (valid == true)
+                {
+
+
+                    try
+                    {
+                        string query = "select price from parts where parts.part_id = @partId";
+                        SqlCommand da = new SqlCommand(query, connect);
+                        da.Parameters.AddWithValue("@partId", part_Id);
+                        connect.Open();
+                        var cost = da.ExecuteScalar();
+                        cost = Convert.ToInt32(cost) * Int32.Parse(orderQuantity);
+                        string sqlCommand = "INSERT INTO orders(order_number,part_id,status,costs,quantity,o_date) values(@orderNumber,@partId,@status,@costs,@orderQuantity,@orderDate)";
+                        SqlCommand execute = new SqlCommand(sqlCommand, connect);
+                        execute.Parameters.AddWithValue("@orderNumber", orderNumber);
+                        execute.Parameters.AddWithValue("@partId", part_Id);
+                        execute.Parameters.AddWithValue("@status", status);
+                        execute.Parameters.AddWithValue("@costs", cost);
+                        execute.Parameters.AddWithValue("@orderQuantity", orderQuantity);
+                        execute.Parameters.Add("@orderDate", SqlDbType.Date).Value = orderDate.Value.Date;
+                        execute.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error has occured.");
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+
+                    }
+
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Must enter an Order Number.");
+                }
             }
             else
             {
-                MessageBox.Show("Order Number must be an int.");
+                MessageBox.Show("Must enter an Order number, and it must be an integer.");
             }
+
         }
 
         private void AddOrder_Load(object sender, EventArgs e)
