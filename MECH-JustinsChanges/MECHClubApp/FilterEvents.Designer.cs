@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.endingDate = new System.Windows.Forms.DateTimePicker();
+            this.startingDate = new System.Windows.Forms.DateTimePicker();
             this.nameCombo = new System.Windows.Forms.ComboBox();
-            this.vendorCombo = new System.Windows.Forms.ComboBox();
-            this.lowestQuantity = new System.Windows.Forms.RadioButton();
-            this.highestQuantity = new System.Windows.Forms.RadioButton();
-            this.leastExpFilter = new System.Windows.Forms.RadioButton();
-            this.expensiveFilter = new System.Windows.Forms.RadioButton();
-            this.vendorFilter = new System.Windows.Forms.RadioButton();
-            this.typeFilter = new System.Windows.Forms.RadioButton();
+            this.locationCombo = new System.Windows.Forms.ComboBox();
+            this.lowestCost = new System.Windows.Forms.RadioButton();
+            this.highestCost = new System.Windows.Forms.RadioButton();
+            this.endDateFilter = new System.Windows.Forms.RadioButton();
+            this.startDateFilter = new System.Windows.Forms.RadioButton();
+            this.locationFilter = new System.Windows.Forms.RadioButton();
+            this.eventNameFilter = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.startingDate = new System.Windows.Forms.DateTimePicker();
-            this.endingDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,13 +49,13 @@
             this.groupBox1.Controls.Add(this.endingDate);
             this.groupBox1.Controls.Add(this.startingDate);
             this.groupBox1.Controls.Add(this.nameCombo);
-            this.groupBox1.Controls.Add(this.vendorCombo);
-            this.groupBox1.Controls.Add(this.lowestQuantity);
-            this.groupBox1.Controls.Add(this.highestQuantity);
-            this.groupBox1.Controls.Add(this.leastExpFilter);
-            this.groupBox1.Controls.Add(this.expensiveFilter);
-            this.groupBox1.Controls.Add(this.vendorFilter);
-            this.groupBox1.Controls.Add(this.typeFilter);
+            this.groupBox1.Controls.Add(this.locationCombo);
+            this.groupBox1.Controls.Add(this.lowestCost);
+            this.groupBox1.Controls.Add(this.highestCost);
+            this.groupBox1.Controls.Add(this.endDateFilter);
+            this.groupBox1.Controls.Add(this.startDateFilter);
+            this.groupBox1.Controls.Add(this.locationFilter);
+            this.groupBox1.Controls.Add(this.eventNameFilter);
             this.groupBox1.Location = new System.Drawing.Point(37, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(350, 304);
@@ -63,105 +63,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choose your Filter";
             // 
-            // nameCombo
+            // endingDate
             // 
-            this.nameCombo.FormattingEnabled = true;
-            this.nameCombo.Location = new System.Drawing.Point(199, 37);
-            this.nameCombo.Name = "nameCombo";
-            this.nameCombo.Size = new System.Drawing.Size(121, 21);
-            this.nameCombo.TabIndex = 17;
-            // 
-            // vendorCombo
-            // 
-            this.vendorCombo.FormattingEnabled = true;
-            this.vendorCombo.Location = new System.Drawing.Point(199, 78);
-            this.vendorCombo.Name = "vendorCombo";
-            this.vendorCombo.Size = new System.Drawing.Size(121, 21);
-            this.vendorCombo.TabIndex = 16;
-            // 
-            // lowestQuantity
-            // 
-            this.lowestQuantity.AutoSize = true;
-            this.lowestQuantity.Location = new System.Drawing.Point(27, 249);
-            this.lowestQuantity.Name = "lowestQuantity";
-            this.lowestQuantity.Size = new System.Drawing.Size(83, 17);
-            this.lowestQuantity.TabIndex = 15;
-            this.lowestQuantity.TabStop = true;
-            this.lowestQuantity.Text = "Lowest Cost";
-            this.lowestQuantity.UseVisualStyleBackColor = true;
-            // 
-            // highestQuantity
-            // 
-            this.highestQuantity.AutoSize = true;
-            this.highestQuantity.Location = new System.Drawing.Point(27, 203);
-            this.highestQuantity.Name = "highestQuantity";
-            this.highestQuantity.Size = new System.Drawing.Size(85, 17);
-            this.highestQuantity.TabIndex = 14;
-            this.highestQuantity.TabStop = true;
-            this.highestQuantity.Text = "Highest Cost";
-            this.highestQuantity.UseVisualStyleBackColor = true;
-            // 
-            // leastExpFilter
-            // 
-            this.leastExpFilter.AutoSize = true;
-            this.leastExpFilter.Location = new System.Drawing.Point(27, 161);
-            this.leastExpFilter.Name = "leastExpFilter";
-            this.leastExpFilter.Size = new System.Drawing.Size(84, 17);
-            this.leastExpFilter.TabIndex = 13;
-            this.leastExpFilter.TabStop = true;
-            this.leastExpFilter.Text = "Ending Date";
-            this.leastExpFilter.UseVisualStyleBackColor = true;
-            // 
-            // expensiveFilter
-            // 
-            this.expensiveFilter.AutoSize = true;
-            this.expensiveFilter.Location = new System.Drawing.Point(27, 120);
-            this.expensiveFilter.Name = "expensiveFilter";
-            this.expensiveFilter.Size = new System.Drawing.Size(87, 17);
-            this.expensiveFilter.TabIndex = 12;
-            this.expensiveFilter.TabStop = true;
-            this.expensiveFilter.Text = "Starting Date";
-            this.expensiveFilter.UseVisualStyleBackColor = true;
-            // 
-            // vendorFilter
-            // 
-            this.vendorFilter.AutoSize = true;
-            this.vendorFilter.Location = new System.Drawing.Point(27, 78);
-            this.vendorFilter.Name = "vendorFilter";
-            this.vendorFilter.Size = new System.Drawing.Size(66, 17);
-            this.vendorFilter.TabIndex = 11;
-            this.vendorFilter.TabStop = true;
-            this.vendorFilter.Text = "Location";
-            this.vendorFilter.UseVisualStyleBackColor = true;
-            // 
-            // typeFilter
-            // 
-            this.typeFilter.AutoSize = true;
-            this.typeFilter.Location = new System.Drawing.Point(27, 37);
-            this.typeFilter.Name = "typeFilter";
-            this.typeFilter.Size = new System.Drawing.Size(84, 17);
-            this.typeFilter.TabIndex = 10;
-            this.typeFilter.TabStop = true;
-            this.typeFilter.Text = "Event Name";
-            this.typeFilter.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(245, 388);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 55);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(72, 388);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 55);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Filter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.endingDate.Location = new System.Drawing.Point(199, 157);
+            this.endingDate.Name = "endingDate";
+            this.endingDate.Size = new System.Drawing.Size(121, 20);
+            this.endingDate.TabIndex = 39;
+            this.endingDate.Value = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
             // 
             // startingDate
             // 
@@ -171,13 +79,107 @@
             this.startingDate.TabIndex = 38;
             this.startingDate.Value = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
             // 
-            // endingDate
+            // nameCombo
             // 
-            this.endingDate.Location = new System.Drawing.Point(199, 157);
-            this.endingDate.Name = "endingDate";
-            this.endingDate.Size = new System.Drawing.Size(121, 20);
-            this.endingDate.TabIndex = 39;
-            this.endingDate.Value = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
+            this.nameCombo.FormattingEnabled = true;
+            this.nameCombo.Location = new System.Drawing.Point(199, 37);
+            this.nameCombo.Name = "nameCombo";
+            this.nameCombo.Size = new System.Drawing.Size(121, 21);
+            this.nameCombo.TabIndex = 17;
+            // 
+            // locationCombo
+            // 
+            this.locationCombo.FormattingEnabled = true;
+            this.locationCombo.Location = new System.Drawing.Point(199, 78);
+            this.locationCombo.Name = "locationCombo";
+            this.locationCombo.Size = new System.Drawing.Size(121, 21);
+            this.locationCombo.TabIndex = 16;
+            // 
+            // lowestCost
+            // 
+            this.lowestCost.AutoSize = true;
+            this.lowestCost.Location = new System.Drawing.Point(27, 249);
+            this.lowestCost.Name = "lowestCost";
+            this.lowestCost.Size = new System.Drawing.Size(83, 17);
+            this.lowestCost.TabIndex = 15;
+            this.lowestCost.TabStop = true;
+            this.lowestCost.Text = "Lowest Cost";
+            this.lowestCost.UseVisualStyleBackColor = true;
+            // 
+            // highestCost
+            // 
+            this.highestCost.AutoSize = true;
+            this.highestCost.Location = new System.Drawing.Point(27, 203);
+            this.highestCost.Name = "highestCost";
+            this.highestCost.Size = new System.Drawing.Size(85, 17);
+            this.highestCost.TabIndex = 14;
+            this.highestCost.TabStop = true;
+            this.highestCost.Text = "Highest Cost";
+            this.highestCost.UseVisualStyleBackColor = true;
+            // 
+            // endDateFilter
+            // 
+            this.endDateFilter.AutoSize = true;
+            this.endDateFilter.Location = new System.Drawing.Point(27, 161);
+            this.endDateFilter.Name = "endDateFilter";
+            this.endDateFilter.Size = new System.Drawing.Size(84, 17);
+            this.endDateFilter.TabIndex = 13;
+            this.endDateFilter.TabStop = true;
+            this.endDateFilter.Text = "Ending Date";
+            this.endDateFilter.UseVisualStyleBackColor = true;
+            // 
+            // startDateFilter
+            // 
+            this.startDateFilter.AutoSize = true;
+            this.startDateFilter.Location = new System.Drawing.Point(27, 120);
+            this.startDateFilter.Name = "startDateFilter";
+            this.startDateFilter.Size = new System.Drawing.Size(87, 17);
+            this.startDateFilter.TabIndex = 12;
+            this.startDateFilter.TabStop = true;
+            this.startDateFilter.Text = "Starting Date";
+            this.startDateFilter.UseVisualStyleBackColor = true;
+            // 
+            // locationFilter
+            // 
+            this.locationFilter.AutoSize = true;
+            this.locationFilter.Location = new System.Drawing.Point(27, 78);
+            this.locationFilter.Name = "locationFilter";
+            this.locationFilter.Size = new System.Drawing.Size(66, 17);
+            this.locationFilter.TabIndex = 11;
+            this.locationFilter.TabStop = true;
+            this.locationFilter.Text = "Location";
+            this.locationFilter.UseVisualStyleBackColor = true;
+            // 
+            // eventNameFilter
+            // 
+            this.eventNameFilter.AutoSize = true;
+            this.eventNameFilter.Location = new System.Drawing.Point(27, 37);
+            this.eventNameFilter.Name = "eventNameFilter";
+            this.eventNameFilter.Size = new System.Drawing.Size(84, 17);
+            this.eventNameFilter.TabIndex = 10;
+            this.eventNameFilter.TabStop = true;
+            this.eventNameFilter.Text = "Event Name";
+            this.eventNameFilter.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(245, 388);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(112, 55);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(72, 388);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 55);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Filter";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FilterEvents
             // 
@@ -199,13 +201,13 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox nameCombo;
-        private System.Windows.Forms.ComboBox vendorCombo;
-        private System.Windows.Forms.RadioButton lowestQuantity;
-        private System.Windows.Forms.RadioButton highestQuantity;
-        private System.Windows.Forms.RadioButton leastExpFilter;
-        private System.Windows.Forms.RadioButton expensiveFilter;
-        private System.Windows.Forms.RadioButton vendorFilter;
-        private System.Windows.Forms.RadioButton typeFilter;
+        private System.Windows.Forms.ComboBox locationCombo;
+        private System.Windows.Forms.RadioButton lowestCost;
+        private System.Windows.Forms.RadioButton highestCost;
+        private System.Windows.Forms.RadioButton endDateFilter;
+        private System.Windows.Forms.RadioButton startDateFilter;
+        private System.Windows.Forms.RadioButton locationFilter;
+        private System.Windows.Forms.RadioButton eventNameFilter;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker endingDate;

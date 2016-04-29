@@ -59,6 +59,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -68,6 +69,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DeleteEvent
             // 
@@ -80,6 +82,7 @@
             this.Controls.Add(this.button1);
             this.Name = "DeleteEvent";
             this.Text = "DeleteEvent";
+            this.Load += new System.EventHandler(this.DeleteEvent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
