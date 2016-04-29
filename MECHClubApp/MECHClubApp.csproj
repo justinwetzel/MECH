@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrder.Designer.cs">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,12 @@
     <Compile Include="AddProjectPart.Designer.cs">
       <DependentUpon>AddProjectPart.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteOrder.Designer.cs">
+      <DependentUpon>DeleteOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeletePart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +93,12 @@
     </Compile>
     <Compile Include="DeleteProjectPart.Designer.cs">
       <DependentUpon>DeleteProjectPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterOrders.Designer.cs">
+      <DependentUpon>FilterOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="FilterParts.cs">
       <SubType>Form</SubType>
@@ -111,6 +129,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MECHDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders.Designer.cs">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProjectParts.cs">
       <SubType>Form</SubType>
@@ -125,6 +149,9 @@
       <DependentUpon>Projects.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddPart.resx">
       <DependentUpon>AddPart.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +161,9 @@
     <EmbeddedResource Include="AddProjectPart.resx">
       <DependentUpon>AddProjectPart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteOrder.resx">
+      <DependentUpon>DeleteOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeletePart.resx">
       <DependentUpon>DeletePart.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteProjectPart.resx">
       <DependentUpon>DeleteProjectPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterOrders.resx">
+      <DependentUpon>FilterOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FilterParts.resx">
       <DependentUpon>FilterParts.cs</DependentUpon>
@@ -154,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders.resx">
+      <DependentUpon>Orders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectParts.resx">
       <DependentUpon>ProjectParts.cs</DependentUpon>

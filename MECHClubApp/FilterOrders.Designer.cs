@@ -1,6 +1,6 @@
 ﻿namespace MECHClubApp
 {
-    partial class FilterParts
+    partial class FilterOrders
     {
         /// <summary>
         /// Required designer variable.
@@ -28,64 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.typeCombo = new System.Windows.Forms.ComboBox();
+            this.orderStatus = new System.Windows.Forms.ComboBox();
             this.lowestQuantity = new System.Windows.Forms.RadioButton();
             this.highestQuantity = new System.Windows.Forms.RadioButton();
             this.leastExpFilter = new System.Windows.Forms.RadioButton();
             this.expensiveFilter = new System.Windows.Forms.RadioButton();
-            this.vendorFilter = new System.Windows.Forms.RadioButton();
-            this.typeFilter = new System.Windows.Forms.RadioButton();
-            this.vendorCombo = new System.Windows.Forms.ComboBox();
+            this.dateFilter = new System.Windows.Forms.RadioButton();
+            this.statusFilter = new System.Windows.Forms.RadioButton();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.orderDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(69, 364);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 55);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Filter";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(242, 364);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 55);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.typeCombo);
-            this.groupBox1.Controls.Add(this.vendorCombo);
+            this.groupBox1.Controls.Add(this.orderDate);
+            this.groupBox1.Controls.Add(this.orderStatus);
             this.groupBox1.Controls.Add(this.lowestQuantity);
             this.groupBox1.Controls.Add(this.highestQuantity);
             this.groupBox1.Controls.Add(this.leastExpFilter);
             this.groupBox1.Controls.Add(this.expensiveFilter);
-            this.groupBox1.Controls.Add(this.vendorFilter);
-            this.groupBox1.Controls.Add(this.typeFilter);
-            this.groupBox1.Location = new System.Drawing.Point(34, 34);
+            this.groupBox1.Controls.Add(this.dateFilter);
+            this.groupBox1.Controls.Add(this.statusFilter);
+            this.groupBox1.Location = new System.Drawing.Point(33, 52);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(350, 304);
-            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choose your Filter";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // typeCombo
+            // orderStatus
             // 
-            this.typeCombo.FormattingEnabled = true;
-            this.typeCombo.Location = new System.Drawing.Point(199, 37);
-            this.typeCombo.Name = "typeCombo";
-            this.typeCombo.Size = new System.Drawing.Size(121, 21);
-            this.typeCombo.TabIndex = 17;
+            this.orderStatus.FormattingEnabled = true;
+            this.orderStatus.Location = new System.Drawing.Point(199, 37);
+            this.orderStatus.Name = "orderStatus";
+            this.orderStatus.Size = new System.Drawing.Size(121, 21);
+            this.orderStatus.TabIndex = 17;
             // 
             // lowestQuantity
             // 
@@ -114,10 +95,10 @@
             this.leastExpFilter.AutoSize = true;
             this.leastExpFilter.Location = new System.Drawing.Point(27, 161);
             this.leastExpFilter.Name = "leastExpFilter";
-            this.leastExpFilter.Size = new System.Drawing.Size(130, 17);
+            this.leastExpFilter.Size = new System.Drawing.Size(137, 17);
             this.leastExpFilter.TabIndex = 13;
             this.leastExpFilter.TabStop = true;
-            this.leastExpFilter.Text = "Least Expensive Parts";
+            this.leastExpFilter.Text = "Least Expensive Orders";
             this.leastExpFilter.UseVisualStyleBackColor = true;
             // 
             // expensiveFilter
@@ -125,53 +106,72 @@
             this.expensiveFilter.AutoSize = true;
             this.expensiveFilter.Location = new System.Drawing.Point(27, 120);
             this.expensiveFilter.Name = "expensiveFilter";
-            this.expensiveFilter.Size = new System.Drawing.Size(127, 17);
+            this.expensiveFilter.Size = new System.Drawing.Size(134, 17);
             this.expensiveFilter.TabIndex = 12;
             this.expensiveFilter.TabStop = true;
-            this.expensiveFilter.Text = "Most Expensive Parts";
+            this.expensiveFilter.Text = "Most Expensive Orders";
             this.expensiveFilter.UseVisualStyleBackColor = true;
             // 
-            // vendorFilter
+            // dateFilter
             // 
-            this.vendorFilter.AutoSize = true;
-            this.vendorFilter.Location = new System.Drawing.Point(27, 78);
-            this.vendorFilter.Name = "vendorFilter";
-            this.vendorFilter.Size = new System.Drawing.Size(98, 17);
-            this.vendorFilter.TabIndex = 11;
-            this.vendorFilter.TabStop = true;
-            this.vendorFilter.Text = "Filter by Vendor";
-            this.vendorFilter.UseVisualStyleBackColor = true;
+            this.dateFilter.AutoSize = true;
+            this.dateFilter.Location = new System.Drawing.Point(27, 78);
+            this.dateFilter.Name = "dateFilter";
+            this.dateFilter.Size = new System.Drawing.Size(87, 17);
+            this.dateFilter.TabIndex = 11;
+            this.dateFilter.TabStop = true;
+            this.dateFilter.Text = "Filter by Date\r\n";
+            this.dateFilter.UseVisualStyleBackColor = true;
             // 
-            // typeFilter
+            // statusFilter
             // 
-            this.typeFilter.AutoSize = true;
-            this.typeFilter.Location = new System.Drawing.Point(27, 37);
-            this.typeFilter.Name = "typeFilter";
-            this.typeFilter.Size = new System.Drawing.Size(88, 17);
-            this.typeFilter.TabIndex = 10;
-            this.typeFilter.TabStop = true;
-            this.typeFilter.Text = "Filter by Type";
-            this.typeFilter.UseVisualStyleBackColor = true;
+            this.statusFilter.AutoSize = true;
+            this.statusFilter.Location = new System.Drawing.Point(27, 37);
+            this.statusFilter.Name = "statusFilter";
+            this.statusFilter.Size = new System.Drawing.Size(94, 17);
+            this.statusFilter.TabIndex = 10;
+            this.statusFilter.TabStop = true;
+            this.statusFilter.Text = "Filter by Status";
+            this.statusFilter.UseVisualStyleBackColor = true;
             // 
-            // vendorCombo
+            // button2
             // 
-            this.vendorCombo.FormattingEnabled = true;
-            this.vendorCombo.Location = new System.Drawing.Point(199, 78);
-            this.vendorCombo.Name = "vendorCombo";
-            this.vendorCombo.Size = new System.Drawing.Size(121, 21);
-            this.vendorCombo.TabIndex = 16;
+            this.button2.Location = new System.Drawing.Point(241, 382);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(112, 55);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // FilterParts
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(68, 382);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 55);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Filter";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // orderDate
+            // 
+            this.orderDate.Location = new System.Drawing.Point(150, 78);
+            this.orderDate.Name = "orderDate";
+            this.orderDate.Size = new System.Drawing.Size(200, 20);
+            this.orderDate.TabIndex = 18;
+            // 
+            // FilterOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 500);
+            this.ClientSize = new System.Drawing.Size(424, 501);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "FilterParts";
-            this.Text = "FilterParts";
-            this.Load += new System.EventHandler(this.FilterParts_Load);
+            this.Name = "FilterOrders";
+            this.Text = "FilterOrders";
+            this.Load += new System.EventHandler(this.FilterOrders_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -179,16 +179,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox orderStatus;
         private System.Windows.Forms.RadioButton lowestQuantity;
         private System.Windows.Forms.RadioButton highestQuantity;
         private System.Windows.Forms.RadioButton leastExpFilter;
         private System.Windows.Forms.RadioButton expensiveFilter;
-        private System.Windows.Forms.RadioButton vendorFilter;
-        private System.Windows.Forms.RadioButton typeFilter;
-        private System.Windows.Forms.ComboBox typeCombo;
-        private System.Windows.Forms.ComboBox vendorCombo;
+        private System.Windows.Forms.RadioButton dateFilter;
+        private System.Windows.Forms.RadioButton statusFilter;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker orderDate;
     }
 }

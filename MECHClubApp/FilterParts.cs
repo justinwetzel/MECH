@@ -117,5 +117,18 @@ namespace MECHClubApp
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            using (SqlConnection conn = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString))
+            {
+                    string query = "select * from parts";
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    conn.Open();
+                    
+                    da.Fill(filterData);
+            }
+        }
     }
 }

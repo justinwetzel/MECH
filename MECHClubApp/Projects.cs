@@ -45,7 +45,13 @@ namespace MECHClubApp
             FilterProjects filterProjects = new FilterProjects(filtered);
             filterProjects.ShowDialog(this);
             filtered = filterProjects.getFilteredData();
-            projectsGrid.DataSource = filtered;
+            if (filtered != null)
+            {
+                if (filtered.Rows.Count > 0)
+                {
+                    projectsGrid.DataSource = filtered;
+                }
+            }
             
         }
 
@@ -75,10 +81,10 @@ namespace MECHClubApp
 
         private void ordersForm_Click(object sender, EventArgs e)
         {
-            /*this.Hide();
+            this.Hide();
             Orders orderForm = new Orders();
             orderForm.Closed += (s, args) => this.Close();
-            orderForm.Show();*/
+            orderForm.Show();
         }
     }
 }

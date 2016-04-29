@@ -113,6 +113,7 @@ namespace MECHClubApp
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
+
         }
         public DataTable getFilteredData()
         {

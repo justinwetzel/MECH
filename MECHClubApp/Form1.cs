@@ -45,7 +45,14 @@ namespace MECHClubApp
             FilterParts filterParts = new FilterParts(filtered);
             filterParts.ShowDialog(this);
             filtered = filterParts.getFilteredData();
-            partsGrid.DataSource = filtered;
+            if(filtered != null)
+            {
+                if(filtered.Rows.Count > 0)
+                {
+                    partsGrid.DataSource = filtered;
+                }
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,7 +73,10 @@ namespace MECHClubApp
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Orders orderForm = new Orders();
+            orderForm.Closed += (s, args) => this.Close();
+            orderForm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

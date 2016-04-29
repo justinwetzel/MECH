@@ -44,7 +44,13 @@ namespace MECHClubApp
             FilterProjectParts filterProjectParts = new FilterProjectParts(filtered);
             filterProjectParts.ShowDialog(this);
             filtered = filterProjectParts.getFilteredData();
-            projectPartsGrid.DataSource = filtered;
+            if (filtered != null)
+            {
+                if (filtered.Rows.Count > 0)
+                {
+                    projectPartsGrid.DataSource = filtered;
+                }
+            }
         }
 
         private void partsForm_Click(object sender, EventArgs e)

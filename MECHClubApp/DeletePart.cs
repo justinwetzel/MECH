@@ -35,7 +35,6 @@ namespace MECHClubApp
                 }
                 catch (Exception ex)
                 {
-                    // write exception info to log or anything else
                     MessageBox.Show("Error occured!");
                     this.Dispose();
                 }
@@ -70,6 +69,11 @@ namespace MECHClubApp
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void idCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -27,7 +27,6 @@ namespace MECHClubApp
         {
             SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
 
-            //Need to validate to prevent SQL injection
             string quantity = partQuantity.Text;
             string type = partType.Text;
             string name = partName.Text;
@@ -49,7 +48,7 @@ namespace MECHClubApp
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("An error has occured.");
             }
             finally
             {
@@ -66,7 +65,7 @@ namespace MECHClubApp
 
         private void AddPart_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 99; i++)
+            for (int i = 1; i < 99; i++)
             {
                 partQuantity.Items.Add(i.ToString());
             }

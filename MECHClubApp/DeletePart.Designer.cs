@@ -37,7 +37,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 129);
+            this.label1.Location = new System.Drawing.Point(70, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
@@ -67,10 +67,11 @@
             // idCombo
             // 
             this.idCombo.FormattingEnabled = true;
-            this.idCombo.Location = new System.Drawing.Point(179, 126);
+            this.idCombo.Location = new System.Drawing.Point(150, 119);
             this.idCombo.Name = "idCombo";
             this.idCombo.Size = new System.Drawing.Size(121, 21);
             this.idCombo.TabIndex = 4;
+            this.idCombo.SelectedIndexChanged += new System.EventHandler(this.idCombo_SelectedIndexChanged);
             // 
             // DeletePart
             // 

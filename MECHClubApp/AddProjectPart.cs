@@ -90,7 +90,7 @@ namespace MECHClubApp
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("An error has occured.");
             }
             finally
             {
