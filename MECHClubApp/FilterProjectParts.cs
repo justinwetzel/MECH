@@ -34,6 +34,7 @@ namespace MECHClubApp
         {
             SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
             string sqlCommand = "";
+            
 
             if (projectFilter.Checked)
             {

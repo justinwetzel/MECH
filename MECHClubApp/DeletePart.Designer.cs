@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.partId = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.idCombo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -43,13 +43,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Part Id";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // partId
-            // 
-            this.partId.Location = new System.Drawing.Point(179, 126);
-            this.partId.Name = "partId";
-            this.partId.Size = new System.Drawing.Size(100, 20);
-            this.partId.TabIndex = 1;
             // 
             // button1
             // 
@@ -71,14 +64,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // idCombo
+            // 
+            this.idCombo.FormattingEnabled = true;
+            this.idCombo.Location = new System.Drawing.Point(179, 126);
+            this.idCombo.Name = "idCombo";
+            this.idCombo.Size = new System.Drawing.Size(121, 21);
+            this.idCombo.TabIndex = 4;
+            // 
             // DeletePart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 404);
+            this.Controls.Add(this.idCombo);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.partId);
             this.Controls.Add(this.label1);
             this.Name = "DeletePart";
             this.Text = "DeletePart";
@@ -91,8 +92,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox partId;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox idCombo;
     }
 }

@@ -30,8 +30,8 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.projectId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.idCombo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
@@ -54,13 +54,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // projectId
-            // 
-            this.projectId.Location = new System.Drawing.Point(197, 140);
-            this.projectId.Name = "projectId";
-            this.projectId.Size = new System.Drawing.Size(100, 20);
-            this.projectId.TabIndex = 4;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -70,17 +63,26 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Project Part Id";
             // 
+            // idCombo
+            // 
+            this.idCombo.FormattingEnabled = true;
+            this.idCombo.Location = new System.Drawing.Point(196, 140);
+            this.idCombo.Name = "idCombo";
+            this.idCombo.Size = new System.Drawing.Size(121, 21);
+            this.idCombo.TabIndex = 6;
+            // 
             // DeleteProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 406);
+            this.Controls.Add(this.idCombo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.projectId);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "DeleteProject";
             this.Text = "DeleteProject";
+            this.Load += new System.EventHandler(this.DeleteProject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,7 +92,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox projectId;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox idCombo;
     }
 }

@@ -20,7 +20,26 @@ namespace MECHClubApp
 
         private void DeletePart_Load(object sender, EventArgs e)
         {
-
+            using (SqlConnection conn = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString))
+            {
+                try
+                {
+                    string query = "select part_id from parts";
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    conn.Open();
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "PartId");
+                    idCombo.DisplayMember = "part_id";
+                    idCombo.ValueMember = "PartId";
+                    idCombo.DataSource = ds.Tables["PartId"];
+                }
+                catch (Exception ex)
+                {
+                    // write exception info to log or anything else
+                    MessageBox.Show("Error occured!");
+                    this.Dispose();
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -33,7 +52,7 @@ namespace MECHClubApp
             SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
             try
             {
-                string sqlCommand = "DELETE FROM parts WHERE parts.part_id=" + partId.Text;
+                string sqlCommand = "DELETE FROM parts WHERE parts.part_id=" + idCombo.Text;
                 SqlCommand execute = new SqlCommand(sqlCommand, connect);
                 connect.Open();
                 execute.ExecuteNonQuery();
