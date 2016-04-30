@@ -29,7 +29,6 @@ namespace MECHClubApp
                 if (projectFilter.Checked)
                 {
                     string projectSelect = projectCombo.Text;
-                    MessageBox.Show(projectSelect);
                     sqlCommand = "SELECT * FROM projects WHERE projects.proj_name LIKE '" + projectSelect + "'";
                 }
                 else if (contributorFilter.Checked)
@@ -78,7 +77,7 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select proj_name from projects";
+                    string query = "select distinct cast(proj_name as varchar(max)) as proj_name from projects";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
@@ -98,7 +97,7 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select contributors from projects";
+                    string query = "select distinct cast(contributors as varchar(max)) as contributors from projects";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
@@ -118,7 +117,7 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select version from projects";
+                    string query = "select distinct cast(version as varchar(max)) as version from projects";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
@@ -134,6 +133,11 @@ namespace MECHClubApp
                     this.Dispose();
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

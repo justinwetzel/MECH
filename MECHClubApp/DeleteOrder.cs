@@ -23,7 +23,7 @@ namespace MECHClubApp
             SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
             try
             {
-                string sqlCommand = "DELETE FROM orders WHERE orders.order_number=" + orderCombo.Text;
+                string sqlCommand = "DELETE FROM orders WHERE orders.order_id=" + orderCombo.Text;
                 SqlCommand execute = new SqlCommand(sqlCommand, connect);
                 connect.Open();
                 execute.ExecuteNonQuery();
@@ -46,14 +46,14 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select order_number from orders";
+                    string query = "select order_id from orders";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
-                    da.Fill(ds, "OrderNumber");
-                    orderCombo.DisplayMember = "order_number";
-                    orderCombo.ValueMember = "OrderNumber";
-                    orderCombo.DataSource = ds.Tables["OrderNumber"];
+                    da.Fill(ds, "OrderId");
+                    orderCombo.DisplayMember = "order_id";
+                    orderCombo.ValueMember = "OrderId";
+                    orderCombo.DataSource = ds.Tables["OrderId"];
                 }
                 catch (Exception ex)
                 {

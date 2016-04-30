@@ -90,7 +90,7 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select type from parts";
+                    string query = "select distinct cast(type as varchar(max)) as type from parts";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
@@ -110,7 +110,7 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select vendor from parts";
+                    string query = "select distinct cast(vendor as varchar(max)) as vendor from parts";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();

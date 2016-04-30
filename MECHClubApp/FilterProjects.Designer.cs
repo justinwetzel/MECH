@@ -31,12 +31,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.versionCombo = new System.Windows.Forms.ComboBox();
+            this.contributorCombo = new System.Windows.Forms.ComboBox();
+            this.projectCombo = new System.Windows.Forms.ComboBox();
             this.versionFilter = new System.Windows.Forms.RadioButton();
             this.contributorFilter = new System.Windows.Forms.RadioButton();
             this.projectFilter = new System.Windows.Forms.RadioButton();
-            this.projectCombo = new System.Windows.Forms.ComboBox();
-            this.contributorCombo = new System.Windows.Forms.ComboBox();
-            this.versionCombo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
@@ -74,6 +75,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choose your Filter";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // versionCombo
+            // 
+            this.versionCombo.FormattingEnabled = true;
+            this.versionCombo.Location = new System.Drawing.Point(203, 119);
+            this.versionCombo.Name = "versionCombo";
+            this.versionCombo.Size = new System.Drawing.Size(121, 21);
+            this.versionCombo.TabIndex = 20;
+            // 
+            // contributorCombo
+            // 
+            this.contributorCombo.FormattingEnabled = true;
+            this.contributorCombo.Location = new System.Drawing.Point(203, 77);
+            this.contributorCombo.Name = "contributorCombo";
+            this.contributorCombo.Size = new System.Drawing.Size(121, 21);
+            this.contributorCombo.TabIndex = 19;
+            // 
+            // projectCombo
+            // 
+            this.projectCombo.FormattingEnabled = true;
+            this.projectCombo.Location = new System.Drawing.Point(203, 36);
+            this.projectCombo.Name = "projectCombo";
+            this.projectCombo.Size = new System.Drawing.Size(121, 21);
+            this.projectCombo.TabIndex = 18;
             // 
             // versionFilter
             // 
@@ -107,30 +132,6 @@
             this.projectFilter.TabStop = true;
             this.projectFilter.Text = "Filter by Project";
             this.projectFilter.UseVisualStyleBackColor = true;
-            // 
-            // projectCombo
-            // 
-            this.projectCombo.FormattingEnabled = true;
-            this.projectCombo.Location = new System.Drawing.Point(203, 36);
-            this.projectCombo.Name = "projectCombo";
-            this.projectCombo.Size = new System.Drawing.Size(121, 21);
-            this.projectCombo.TabIndex = 18;
-            // 
-            // contributorCombo
-            // 
-            this.contributorCombo.FormattingEnabled = true;
-            this.contributorCombo.Location = new System.Drawing.Point(203, 77);
-            this.contributorCombo.Name = "contributorCombo";
-            this.contributorCombo.Size = new System.Drawing.Size(121, 21);
-            this.contributorCombo.TabIndex = 19;
-            // 
-            // versionCombo
-            // 
-            this.versionCombo.FormattingEnabled = true;
-            this.versionCombo.Location = new System.Drawing.Point(203, 119);
-            this.versionCombo.Name = "versionCombo";
-            this.versionCombo.Size = new System.Drawing.Size(121, 21);
-            this.versionCombo.TabIndex = 20;
             // 
             // FilterProjects
             // 

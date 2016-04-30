@@ -40,7 +40,7 @@ namespace MECHClubApp
 
                 if (statusFilter.Checked)
                 {
-                    string status = orderStatus.SelectedValue.ToString();
+                    string status = orderStatus.Text;
                     sqlCommand = "SELECT * FROM orders WHERE orders.status LIKE '" + status + "'";
                 }
                 else if (dateFilter.Checked)
