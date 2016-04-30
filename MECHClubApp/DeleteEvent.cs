@@ -11,39 +11,35 @@ using System.Data.SqlClient;
 
 namespace MECHClubApp
 {
-    public partial class DeletePart : Form
+    public partial class DeleteEvent : Form
     {
-        public DeletePart()
+        public DeleteEvent()
         {
             InitializeComponent();
         }
 
-        private void DeletePart_Load(object sender, EventArgs e)
+        private void DeleteEvent_Load(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString))
             {
                 try
                 {
-                    string query = "select part_id from parts";
+                    string query = "select event_id from events";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
-                    da.Fill(ds, "PartId");
-                    idCombo.DisplayMember = "part_id";
-                    idCombo.ValueMember = "PartId";
-                    idCombo.DataSource = ds.Tables["PartId"];
+                    da.Fill(ds, "EventId");
+                    idCombo.DisplayMember = "event_id";
+                    idCombo.ValueMember = "EventId";
+                    idCombo.DataSource = ds.Tables["EventId"];
                 }
                 catch (Exception ex)
                 {
+                    // write exception info to log or anything else
                     MessageBox.Show("Error occured!");
                     this.Dispose();
                 }
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,14 +47,14 @@ namespace MECHClubApp
             SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
             try
             {
-                string sqlCommand = "DELETE FROM parts WHERE parts.part_id=" + idCombo.Text;
+                string sqlCommand = "DELETE FROM events WHERE events.event_id=" + idCombo.Text;
                 SqlCommand execute = new SqlCommand(sqlCommand, connect);
                 connect.Open();
                 execute.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to delete part, make sure a Project or Project part doesn't depend on it before deleting.");
+                MessageBox.Show("Unable to delete Event.");
             }
             finally
             {
@@ -68,14 +64,9 @@ namespace MECHClubApp
             this.Dispose();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void idCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            this.Dispose();
         }
     }
 }

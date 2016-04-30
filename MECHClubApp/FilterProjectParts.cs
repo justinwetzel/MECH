@@ -11,18 +11,23 @@ using System.Data.SqlClient;
 
 namespace MECHClubApp
 {
-    public partial class FilterParts : Form
+    public partial class FilterProjectParts : Form
     {
         DataTable filterData = new DataTable();
-        public FilterParts(DataTable filter)
+        public FilterProjectParts(DataTable filter)
         {
             InitializeComponent();
             filterData = filter;
         }
-         
-        private void label1_Click(object sender, EventArgs e)
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            //ignore
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,31 +36,24 @@ namespace MECHClubApp
                 SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
                 string sqlCommand = "";
 
-                if (typeFilter.Checked)
+
+                if (projectFilter.Checked)
                 {
-                    string typeSelect = typeCombo.SelectedValue.ToString();
-                    sqlCommand = "SELECT * FROM parts WHERE parts.type LIKE '" + typeSelect + "'";
+                    string projectSelect = projectCombo.Text;
+                    sqlCommand = "SELECT * FROM project_parts WHERE project_parts.proj_id = '" + projectSelect + "'";
                 }
-                else if (vendorFilter.Checked)
+                else if (partFilter.Checked)
                 {
-                    string vendorSelect = vendorCombo.SelectedValue.ToString();
-                    sqlCommand = "SELECT *  FROM parts WHERE parts.vendor LIKE '" + vendorSelect + "'";
+                    string partSelect = partCombo.Text;
+                    sqlCommand = "SELECT *  FROM project_parts WHERE project_parts.part_id = '" + partSelect + "'";
                 }
-                else if (expensiveFilter.Checked)
+                else if (mostFilter.Checked)
                 {
-                    sqlCommand = "SELECT * FROM parts ORDER BY parts.price DESC";
+                    sqlCommand = "SELECT * FROM project_parts ORDER BY project_parts.quantity_need DESC";
                 }
-                else if (leastExpFilter.Checked)
+                else if (leastFilter.Checked)
                 {
-                    sqlCommand = "SELECT * FROM parts ORDER BY parts.price ASC";
-                }
-                else if (highestQuantity.Checked)
-                {
-                    sqlCommand = "SELECT * FROM parts ORDER BY parts.quantity DESC";
-                }
-                else if (lowestQuantity.Checked)
-                {
-                    sqlCommand = "SELECT * FROM parts ORDER BY parts.quantity ASC";
+                    sqlCommand = "SELECT * FROM project_parts ORDER BY project_parts.quantity_need ASC";
                 }
                 else
                 {
@@ -68,36 +66,26 @@ namespace MECHClubApp
                 execute.Fill(filterData);
                 this.Dispose();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Please be sure to select a filter.");
             }
-            finally
-            {
-
-            }
-            
-        }
-        
-        public DataTable getFilteredData()
-        {
-            return filterData;
         }
 
-        private void FilterParts_Load(object sender, EventArgs e)
+        private void FilterProjectParts_Load(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString))
             {
                 try
                 {
-                    string query = "select distinct cast(type as varchar(max)) as type from parts";
+                    string query = "select distinct proj_id from project_parts";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
-                    da.Fill(ds, "Type");
-                    typeCombo.DisplayMember = "type";
-                    typeCombo.ValueMember = "Type";
-                    typeCombo.DataSource = ds.Tables["Type"];
+                    da.Fill(ds, "ProjId");
+                    projectCombo.DisplayMember = "proj_id";
+                    projectCombo.ValueMember = "ProjId";
+                    projectCombo.DataSource = ds.Tables["ProjId"];
                 }
                 catch (Exception ex)
                 {
@@ -110,14 +98,14 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select distinct cast(vendor as varchar(max)) as vendor from parts";
+                    string query = "select distinct part_id from project_parts";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
-                    da.Fill(ds, "Vendor");
-                    vendorCombo.DisplayMember = "vendor";
-                    vendorCombo.ValueMember = "Vendor";
-                    vendorCombo.DataSource = ds.Tables["Vendor"];
+                    da.Fill(ds, "PartId");
+                    partCombo.DisplayMember = "part_id";
+                    partCombo.ValueMember = "PartId";
+                    partCombo.DataSource = ds.Tables["PartId"];
                 }
                 catch (Exception ex)
                 {
@@ -131,14 +119,11 @@ namespace MECHClubApp
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            using (SqlConnection conn = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString))
-            {
-                    string query = "select * from parts";
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    conn.Open();
-                    
-                    da.Fill(filterData);
-            }
+
+        }
+        public DataTable getFilteredData()
+        {
+            return filterData;
         }
     }
 }

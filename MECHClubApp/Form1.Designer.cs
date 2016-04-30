@@ -32,11 +32,7 @@
             this.add_part_button = new System.Windows.Forms.Button();
             this.delete_part_button = new System.Windows.Forms.Button();
             this.filter_part_button = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mECHDatabaseDataSet = new MECHClubApp.MECHDatabaseDataSet();
-            this.mECHDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.partsTableAdapter = new MECHClubApp.MECHDatabaseDataSetTableAdapters.partsTableAdapter();
+            this.partsGrid = new System.Windows.Forms.DataGridView();
             this.partidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,10 +40,18 @@
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendorurlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSetBindingSource)).BeginInit();
+            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mECHDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mECHDatabaseDataSet = new MECHClubApp.MECHDatabaseDataSet();
+            this.partsTableAdapter = new MECHClubApp.MECHDatabaseDataSetTableAdapters.partsTableAdapter();
+            this.projectsForm = new System.Windows.Forms.Button();
+            this.projectPartsForm = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // add_part_button
@@ -78,12 +82,13 @@
             this.filter_part_button.TabIndex = 2;
             this.filter_part_button.Text = "Filter Parts";
             this.filter_part_button.UseVisualStyleBackColor = true;
+            this.filter_part_button.Click += new System.EventHandler(this.filter_part_button_Click);
             // 
-            // dataGridView1
+            // partsGrid
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.partsGrid.AutoGenerateColumns = false;
+            this.partsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.partidDataGridViewTextBoxColumn,
             this.partnameDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
@@ -91,30 +96,11 @@
             this.typeDataGridViewTextBoxColumn,
             this.vendorDataGridViewTextBoxColumn,
             this.vendorurlDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.partsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 264);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1173, 309);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // mECHDatabaseDataSet
-            // 
-            this.mECHDatabaseDataSet.DataSetName = "MECHDatabaseDataSet";
-            this.mECHDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mECHDatabaseDataSetBindingSource
-            // 
-            this.mECHDatabaseDataSetBindingSource.DataSource = this.mECHDatabaseDataSet;
-            this.mECHDatabaseDataSetBindingSource.Position = 0;
-            // 
-            // partsBindingSource
-            // 
-            this.partsBindingSource.DataMember = "parts";
-            this.partsBindingSource.DataSource = this.mECHDatabaseDataSetBindingSource;
-            // 
-            // partsTableAdapter
-            // 
-            this.partsTableAdapter.ClearBeforeFill = true;
+            this.partsGrid.DataSource = this.partsBindingSource;
+            this.partsGrid.Location = new System.Drawing.Point(0, 264);
+            this.partsGrid.Name = "partsGrid";
+            this.partsGrid.Size = new System.Drawing.Size(1173, 309);
+            this.partsGrid.TabIndex = 3;
             // 
             // partidDataGridViewTextBoxColumn
             // 
@@ -164,22 +150,85 @@
             this.vendorurlDataGridViewTextBoxColumn.Name = "vendorurlDataGridViewTextBoxColumn";
             this.vendorurlDataGridViewTextBoxColumn.Width = 185;
             // 
+            // partsBindingSource
+            // 
+            this.partsBindingSource.DataMember = "parts";
+            this.partsBindingSource.DataSource = this.mECHDatabaseDataSetBindingSource;
+            // 
+            // mECHDatabaseDataSetBindingSource
+            // 
+            this.mECHDatabaseDataSetBindingSource.DataSource = this.mECHDatabaseDataSet;
+            this.mECHDatabaseDataSetBindingSource.Position = 0;
+            // 
+            // mECHDatabaseDataSet
+            // 
+            this.mECHDatabaseDataSet.DataSetName = "MECHDatabaseDataSet";
+            this.mECHDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // partsTableAdapter
+            // 
+            this.partsTableAdapter.ClearBeforeFill = true;
+            // 
+            // projectsForm
+            // 
+            this.projectsForm.Location = new System.Drawing.Point(928, 224);
+            this.projectsForm.Name = "projectsForm";
+            this.projectsForm.Size = new System.Drawing.Size(126, 43);
+            this.projectsForm.TabIndex = 4;
+            this.projectsForm.Text = "Projects";
+            this.projectsForm.UseVisualStyleBackColor = true;
+            this.projectsForm.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // projectPartsForm
+            // 
+            this.projectPartsForm.Location = new System.Drawing.Point(1049, 224);
+            this.projectPartsForm.Name = "projectPartsForm";
+            this.projectPartsForm.Size = new System.Drawing.Size(126, 43);
+            this.projectPartsForm.TabIndex = 5;
+            this.projectPartsForm.Text = "Project Parts";
+            this.projectPartsForm.UseVisualStyleBackColor = true;
+            this.projectPartsForm.Click += new System.EventHandler(this.projectPartsForm_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(808, 224);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 43);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Orders";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(689, 224);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(126, 43);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Events";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 626);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.projectPartsForm);
+            this.Controls.Add(this.projectsForm);
+            this.Controls.Add(this.partsGrid);
             this.Controls.Add(this.filter_part_button);
             this.Controls.Add(this.delete_part_button);
             this.Controls.Add(this.add_part_button);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mECHDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,7 +238,7 @@
         private System.Windows.Forms.Button add_part_button;
         private System.Windows.Forms.Button delete_part_button;
         private System.Windows.Forms.Button filter_part_button;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView partsGrid;
         private System.Windows.Forms.BindingSource mECHDatabaseDataSetBindingSource;
         private MECHDatabaseDataSet mECHDatabaseDataSet;
         private System.Windows.Forms.BindingSource partsBindingSource;
@@ -201,6 +250,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendorurlDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button projectsForm;
+        private System.Windows.Forms.Button projectPartsForm;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

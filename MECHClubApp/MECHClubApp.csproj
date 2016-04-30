@@ -46,11 +46,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEvent.Designer.cs">
+      <DependentUpon>AddEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrder.Designer.cs">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPart.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddPart.Designer.cs">
       <DependentUpon>AddPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProject.Designer.cs">
+      <DependentUpon>AddProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProjectPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProjectPart.Designer.cs">
+      <DependentUpon>AddProjectPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteEvent.Designer.cs">
+      <DependentUpon>DeleteEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteOrder.Designer.cs">
+      <DependentUpon>DeleteOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="DeletePart.cs">
       <SubType>Form</SubType>
@@ -58,11 +94,53 @@
     <Compile Include="DeletePart.Designer.cs">
       <DependentUpon>DeletePart.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteProject.Designer.cs">
+      <DependentUpon>DeleteProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteProjectPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteProjectPart.Designer.cs">
+      <DependentUpon>DeleteProjectPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events.Designer.cs">
+      <DependentUpon>Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterEvents.Designer.cs">
+      <DependentUpon>FilterEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterOrders.Designer.cs">
+      <DependentUpon>FilterOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="FilterParts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FilterParts.Designer.cs">
       <DependentUpon>FilterParts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterProjectParts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterProjectParts.Designer.cs">
+      <DependentUpon>FilterProjectParts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterProjects.Designer.cs">
+      <DependentUpon>FilterProjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -75,19 +153,85 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MECHDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders.Designer.cs">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectParts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectParts.Designer.cs">
+      <DependentUpon>ProjectParts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Projects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projects.Designer.cs">
+      <DependentUpon>Projects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddEvent.resx">
+      <DependentUpon>AddEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddPart.resx">
       <DependentUpon>AddPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProject.resx">
+      <DependentUpon>AddProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProjectPart.resx">
+      <DependentUpon>AddProjectPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteEvent.resx">
+      <DependentUpon>DeleteEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteOrder.resx">
+      <DependentUpon>DeleteOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeletePart.resx">
       <DependentUpon>DeletePart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteProject.resx">
+      <DependentUpon>DeleteProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteProjectPart.resx">
+      <DependentUpon>DeleteProjectPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Events.resx">
+      <DependentUpon>Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterEvents.resx">
+      <DependentUpon>FilterEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterOrders.resx">
+      <DependentUpon>FilterOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FilterParts.resx">
       <DependentUpon>FilterParts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FilterProjectParts.resx">
+      <DependentUpon>FilterProjectParts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterProjects.resx">
+      <DependentUpon>FilterProjects.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders.resx">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectParts.resx">
+      <DependentUpon>ProjectParts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projects.resx">
+      <DependentUpon>Projects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

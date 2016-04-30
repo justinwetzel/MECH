@@ -11,18 +11,13 @@ using System.Data.SqlClient;
 
 namespace MECHClubApp
 {
-    public partial class FilterParts : Form
+    public partial class FilterProjects : Form
     {
         DataTable filterData = new DataTable();
-        public FilterParts(DataTable filter)
+        public FilterProjects(DataTable filter)
         {
             InitializeComponent();
             filterData = filter;
-        }
-         
-        private void label1_Click(object sender, EventArgs e)
-        {
-            //ignore
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,35 +26,24 @@ namespace MECHClubApp
                 SqlConnection connect = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString);
                 string sqlCommand = "";
 
-                if (typeFilter.Checked)
+                if (projectFilter.Checked)
                 {
-                    string typeSelect = typeCombo.SelectedValue.ToString();
-                    sqlCommand = "SELECT * FROM parts WHERE parts.type LIKE '" + typeSelect + "'";
+                    string projectSelect = projectCombo.Text;
+                    sqlCommand = "SELECT * FROM projects WHERE projects.proj_name LIKE '" + projectSelect + "'";
                 }
-                else if (vendorFilter.Checked)
+                else if (contributorFilter.Checked)
                 {
-                    string vendorSelect = vendorCombo.SelectedValue.ToString();
-                    sqlCommand = "SELECT *  FROM parts WHERE parts.vendor LIKE '" + vendorSelect + "'";
+                    string contributorSelect = contributorCombo.Text;
+                    sqlCommand = "SELECT *  FROM projects WHERE projects.contributors LIKE '" + contributorSelect + "'";
                 }
-                else if (expensiveFilter.Checked)
+                else if (versionFilter.Checked)
                 {
-                    sqlCommand = "SELECT * FROM parts ORDER BY parts.price DESC";
-                }
-                else if (leastExpFilter.Checked)
-                {
-                    sqlCommand = "SELECT * FROM parts ORDER BY parts.price ASC";
-                }
-                else if (highestQuantity.Checked)
-                {
-                    sqlCommand = "SELECT * FROM parts ORDER BY parts.quantity DESC";
-                }
-                else if (lowestQuantity.Checked)
-                {
-                    sqlCommand = "SELECT * FROM parts ORDER BY parts.quantity ASC";
+                    string versionSelect = versionCombo.Text;
+                    sqlCommand = "SELECT * FROM projects WHERE projects.version LIKE '" + versionSelect + "'";
                 }
                 else
                 {
-                    MessageBox.Show("Error occured!");
+                    MessageBox.Show("Error occured! Checking filters");
                 }
 
                 SqlDataAdapter execute = new SqlDataAdapter(sqlCommand, connect);
@@ -68,7 +52,7 @@ namespace MECHClubApp
                 execute.Fill(filterData);
                 this.Dispose();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Please be sure to select a filter.");
             }
@@ -76,33 +60,36 @@ namespace MECHClubApp
             {
 
             }
-            
         }
-        
         public DataTable getFilteredData()
         {
             return filterData;
         }
 
-        private void FilterParts_Load(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FilterProjects_Load(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString))
             {
                 try
                 {
-                    string query = "select distinct cast(type as varchar(max)) as type from parts";
+                    string query = "select distinct cast(proj_name as varchar(max)) as proj_name from projects";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
-                    da.Fill(ds, "Type");
-                    typeCombo.DisplayMember = "type";
-                    typeCombo.ValueMember = "Type";
-                    typeCombo.DataSource = ds.Tables["Type"];
+                    da.Fill(ds, "ProjectName");
+                    projectCombo.DisplayMember = "proj_name";
+                    projectCombo.ValueMember = "ProjectName";
+                    projectCombo.DataSource = ds.Tables["ProjectName"];
                 }
                 catch (Exception ex)
                 {
                     // write exception info to log or anything else
-                    MessageBox.Show("Error occured!");
+                    MessageBox.Show("Error occured! Loading projects");
                     this.Dispose();
                 }
             }
@@ -110,19 +97,39 @@ namespace MECHClubApp
             {
                 try
                 {
-                    string query = "select distinct cast(vendor as varchar(max)) as vendor from parts";
+                    string query = "select distinct cast(contributors as varchar(max)) as contributors from projects";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     conn.Open();
                     DataSet ds = new DataSet();
-                    da.Fill(ds, "Vendor");
-                    vendorCombo.DisplayMember = "vendor";
-                    vendorCombo.ValueMember = "Vendor";
-                    vendorCombo.DataSource = ds.Tables["Vendor"];
+                    da.Fill(ds, "Contributors");
+                    contributorCombo.DisplayMember = "contributors";
+                    contributorCombo.ValueMember = "Contributors";
+                    contributorCombo.DataSource = ds.Tables["Contributors"];
                 }
                 catch (Exception ex)
                 {
                     // write exception info to log or anything else
-                    MessageBox.Show("Error occured!");
+                    MessageBox.Show("Error occured! Loading contributors");
+                    this.Dispose();
+                }
+            }
+            using (SqlConnection conn = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString))
+            {
+                try
+                {
+                    string query = "select distinct cast(version as varchar(max)) as version from projects";
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    conn.Open();
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "Version");
+                    versionCombo.DisplayMember = "version";
+                    versionCombo.ValueMember = "Version";
+                    versionCombo.DataSource = ds.Tables["Version"];
+                }
+                catch (Exception ex)
+                {
+                    // write exception info to log or anything else
+                    MessageBox.Show("Error occured! Loading versions.");
                     this.Dispose();
                 }
             }
@@ -131,14 +138,6 @@ namespace MECHClubApp
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            using (SqlConnection conn = new SqlConnection(global::MECHClubApp.Properties.Settings.Default.MECHDatabaseConnectionString))
-            {
-                    string query = "select * from parts";
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    conn.Open();
-                    
-                    da.Fill(filterData);
-            }
         }
     }
 }
